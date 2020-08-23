@@ -1,0 +1,15 @@
+# Check out https://docs.codemagic.io/yaml/yaml for more information
+
+workflows:
+    flutter-tests-develop:
+        name: Flutter Tests Develop
+        environment:
+            xcode: latest
+            cocoapods: default
+        scripts:
+          - name: Pull Docker image
+            script: |
+              docker pull kscodemagic/fastfluttertests:1.0
+          - name: Run Docker commands
+            script: |
+              ./run_docker.sh
